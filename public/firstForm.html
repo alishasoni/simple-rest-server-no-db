@@ -2,23 +2,28 @@
 <html>
 <head> 
     <title> My Page </title>
+    <script                                                src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+    
+       
 </head>
 <body>
-    <form action="" method="">
-        First Name: <br> <input type="text" name="fName">       <br>
-        Last Name:<br> <input type="text" name="lName">          <br> <br>
+    <script type='text/javascript' src='form.js'>
+        </script>
+   <form id="form1" action="" method="">
+         First Name: <br> <input type="text"  id="a1" name="fName">      <br>
+        Last Name:<br> <input type="text"  id="a2" name="lName">          <br> <br>
         Gender:<br>
-        <input type="radio" name="sex" value="Male"> Male         <br> 
-        <input type="radio" name="sex" value="Female">              Female <br> <br>
-        Email: <input type="text" name="email"> <br> <br>
-        Contact Number: <input type="tel" name="userNum">         <br> <br>
-        Address: <br><textarea name="address" rows="10"           cols="30">
+        <input type="radio" name="sex"  id="a3" value="Male"> Male         <br> 
+        <input type="radio" name="sex"  id="a4" value="Female">              Female <br> <br>
+        Email: <input type="text"  id="a5" name="email"> <br> <br>
+        Contact Number: <input type="tel"  id="a6" name="userNum">         <br> <br>
+        Address: <br><textarea name="address"  id="a7" rows="10"           cols="30">
         </textarea><br> <br>
-        Postal code: <input type="number" name="quantity">
-        City: <input type="text"> <br> <br>
+        Postal code: <input type="number"  class="a1" name="quantity">
+        City: <input type="text"  class="a1"> <br> <br>
    
     
-        State: <select> 
+        State: <select  class="a1"> 
         <option> Pennsylvania </option>
         <option> Texas </option>
         <option> Virginia </option>
@@ -28,9 +33,9 @@
         <option> New york </option>
         </select> <br> <br>
 
-        Date of Birth: <input type="date" name="birth              date"> <br> <br>
+        Date of Birth: <input type="date"  class="a1" name="birth              date"> <br> <br>
         Education Information:<br>
-    <table border="1" style="width:100%">
+    <table border="1" style="width:100%"  class="a1">
        <tr>
          <td> University</td>
          <td> Year of Passing </td>
@@ -41,7 +46,7 @@
          <td></td>
          <td></td>
        </tr>
-       <tr>
+       <tr> 
          <td>College</td>
          <td></td>
          <td></td>
@@ -54,11 +59,24 @@
     </table> <br>
     <fieldset>
         <legend> Social IDs: </legend>
-        SSN number: <input type="number" name ="ssn"> <br>          <br>
-        Passport number: <input type="number"                         name="passport">
+        SSN number: <input type="number"  class="a1" name ="ssn"> <br>          <br>
+        Passport number: <input type="number"  class="a1"                        name="passport">
         
     </fieldset> <br> <br>
-     <input type="submit" value="submit">
+     <input type="submit" id="s1"value="submit">
      <input type="reset" value="reset">
-</form>
+    </form>
+
+    
+        <p id="p1"> What is this??</p>
+    <p id="p2"> What is this??</p>
+    <p id="p3"> What is this??</p>
+    <p id="p4"> What is this??</p>
+    <p id="p5"> What is this??</p>
+    <p id="p6"> What is this??</p>
+    <p id="p7"> What is this??</p>
+    
+    
+    
 </body>
+</html>
