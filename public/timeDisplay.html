@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title> What's the Time </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+
+        <script>
+            var a;
+            $(document).ready(function (){
+              a=setInterval(myTimer,1000);
+                function myTimer() {
+                    var d=new Date();
+          $("#p1").text(d.toLocaleTimeString());
+                }
+          
+                
+                $("#btn1").click(function() {
+                 var s=$("#btn1").text();
+                   
+                if( s=="Stop") {
+                
+                  clearInterval(a);
+                  $("#btn1").text("Start");
+                }
+                    else {
+            var b=setInterval(myTimmer,1000);
+                function myTimmer() {
+                    var e=new Date();
+            $("#p1").text(e.toLocaleTimeString());
+                }
+                }
+                      
+            });
+            });
+            
+        
+        </script>
+    </head>
+    <body>
+        <button id="btn1">Stop</button>
+        <h1 id="p1"> </h1>
+        
+    </body>
+</html>
