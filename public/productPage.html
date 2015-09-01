@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html lang="en"></html>
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <titlt> My Product Page </titlt>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <div classs="navbar-header">
+                    <a class="navbar-brand"href="#"> Store</a>
+                </div>
+                <div> 
+                    <ul class="nav navbar-nav">
+                        <li class="active"> <a href ="#"> Home </a></li> 
+                        <li> <a href="#"> About </a> </li>
+                        <li> <a href="#"> Catalog </a></li>
+                        <li> <a href="#"> Contact </a></li>
+                    </ul>
+                </div>
+             </div>
+        </nav>
+        <div class="container col-sm-2">
+            <div class="list-group ">
+                <a href=""  class="list-group-item active ">Special Offer</a>
+                <a href=""  class="list-group-item">Clearance</a>
+                <a href=""  class="list-group-item"> Categories </a>
+                <a href=""  class="list-group-item">New Products </a>
+            </div>
+        </div>
+        
+        <div class="container col-sm-10">
+            <form class="form-horizontal" role="form">
+            <div  class="form-group ">
+                <label class="col-sm-2 control-label"> Search </label>
+                <div class="col-sm-2">
+                    <input id="search" class="form-control"  type="text" value="Search by product name">
+                 </div>
+                </div>
+            </form>
+            <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"> Add item </label>
+                <div class="col-sm-2">
+                    <input class="form-control" id="focusedInput" type="text" value="Item Name">
+                 </div>
+                 <div class="col-sm-2">
+                    <input class="form-control" id="focusedInput" type="text" value="Description">
+                 </div>
+                 <div class="col-sm-2">
+                    <input class="form-control" id="focusedInput" type="text" value="Price">
+                 </div>
+                <div>
+                    <button type="button" class="btn btn-default">Add</button>
+                </div>
+                </div>
+            </form>
+            <div class="alert alert-success">
+                <a  class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close" >  </a>
+                   <h4>  <strong> Soccerball   </strong>  <button type="button" class="btn btn-primary pull-right"> $19.50</button> </h4>                                          
+                  <p> FIFA  approved size and  weight.</p> 
+            </div>
+            <div class="alert alert-success">
+                <a class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close"> </a>
+                   <h4>  <strong>   Corner Flags  </strong>   <button type="button" class="btn btn-primary pull-right">$34.95</button></h4>                     
+                <p> Give your playing field a personal touch.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                         <h4> <strong>Stadium</strong> <button type="button" class="btn btn-primary pull-right">$79,500,00</button>  </h4>           
+                <p>  Flat packed 35,000 seat stadium.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                  <h4> <strong>   Thinking Cap   </strong>  <button type="button" class="btn btn-primary pull-right">$16.00</button></h4>     
+                <p>  Improve your brain efficiency by 75%.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close"> </a>
+                <h4>  <strong>   Human Chess Board   </strong> <button type="button" class="btn btn-primary pull-right">$73.00</button>  </h4>  
+                <p> A fun game for the family.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                     <h4> <strong>    Bling Bling KIng </strong>  <button type="button" class="btn btn-primary pull-right">$1,200,00</button> </h4>
+                <p> Gold plated diamond studed king.</p>
+            </div>
+            
+        </div>
+        <script>
+        $(document).ready(function(){ 
+            $("#search").change(function() {
+//alert("a");
+                var product=$("#search").val();
+           //   alert(product);
+                              $.ajax( {
+                              type:"POST",
+                              url:"/products",
+                              data:{product},
+                              success: function (data) {
+                               //  alert("a");
+                              // alert(data);
+                }
+            });
+        });
+            });
+                    
+     </script>
+   
+    </body>
+
+</html>
