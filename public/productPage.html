@@ -39,7 +39,7 @@
             <div  class="form-group ">
                 <label class="col-sm-2 control-label"> Search </label>
                 <div class="col-sm-2">
-                    <input id="search" class="form-control"  type="text" value="Search by product name">
+                    <input id="search" class="form-control"  type="text" placeholder="Search by product name">
                  </div>
                 </div>
             </form>
@@ -47,13 +47,13 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label"> Add item </label>
                 <div class="col-sm-2">
-                    <input class="form-control" id="input1" type="text" value="Item Name">
+                    <input class="form-control" id="input1" type="text" placeholder="Item Name">
                  </div>
                  <div class="col-sm-2">
-                    <input class="form-control" id="input2" type="text" value="Description">
+                    <input class="form-control" id="input2" type="text" placeholder="Description">
                  </div>
                  <div class="col-sm-2">
-                    <input class="form-control" id="input3" type="text" value="Price">
+                    <input class="form-control" id="input3" type="text" placeholder="Price">
                  </div>
                 <div>
                     <button type="button"  id="b1">Add</button>
@@ -105,38 +105,29 @@
                               url:"/products",
                               data:{product},
                               success: function (data) {
-                           //  
-                             //  alert(data);
                               }
-                             });
+                              });
+                              
             });
-             $("#b1").click(function() {
-             // alert("a");
-                
+               $("#b1").click(function() {
                  var item=$("#input1").val();
                  var description=$("#input2").val();
                  var price=$("#input3").val();
-                 $.ajax ( {
-                 type:"POST",
-                 url:"/products",
-                 data:{item,description,price},
-                 success: function(data) { 
+                     $.ajax ( {
+                     type:"POST",
+                     url:"/products",
+                     data:{item,description,price},
+                     success: function(data) { 
                     // alert("alishaSoni");
-                     $("#d1").append ('<div class="alert alert-success"> \
-               <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a> \
-                <h4 > <strong id="s1"> </strong>   <button id="btn" type="button" class="btn btn-primary pull-right"> </button> </h4> \
-               <p id="p1"> Gold plated diamond studed king.</p>\
-               </div>');
-                                                                // $("ol").append("<li>Appended item</li>");
-                     // alert(data.item);
-                      alert("alisha");                                         //      $("#div1").text(store);
                      store1=(data.item);
                      store2=(data.description);
                      store3=(data.price);
-                    // alert("a");
-                     $("#s1").text(store1);
-                     $("#btn").text(store3);
-                     $("#p1").text(store2);
+                     $("#d1").append ('<div class="alert alert-success"> \
+                    <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a> \
+                 <h4 > <strong id="s1"> ' + store1 + '</strong>   <button id="btn" type="button" class="btn btn-primary pull-right">'+ store3+                   '</button> </h4> \
+                  <p id="p1">'+ store2+'</p>\
+                  </div>');
+                     
                   }
         });
         });
