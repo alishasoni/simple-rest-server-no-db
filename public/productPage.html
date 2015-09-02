@@ -34,7 +34,7 @@
             </div>
         </div>
         
-        <div class="container col-sm-10">
+        <div id="d1" class="container col-sm-10">
             <form class="form-horizontal" role="form">
             <div  class="form-group ">
                 <label class="col-sm-2 control-label"> Search </label>
@@ -47,39 +47,37 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label"> Add item </label>
                 <div class="col-sm-2">
-                    <input class="form-control" id="focusedInput" type="text" value="Item Name">
+                    <input class="form-control" id="input1" type="text" value="Item Name">
                  </div>
                  <div class="col-sm-2">
-                    <input class="form-control" id="focusedInput" type="text" value="Description">
+                    <input class="form-control" id="input2" type="text" value="Description">
                  </div>
                  <div class="col-sm-2">
-                    <input class="form-control" id="focusedInput" type="text" value="Price">
+                    <input class="form-control" id="input3" type="text" value="Price">
                  </div>
                 <div>
-                    <button type="button" class="btn btn-default">Add</button>
+                    <button type="button"  id="b1">Add</button>
                 </div>
                 </div>
             </form>
             <div class="alert alert-success">
                 <a  class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close" >  </a>
-                   <h4>  <strong> Soccerball   </strong>  <button type="button" class="btn btn-primary pull-right"> $19.50</button> </h4>                                          
-                  <p> FIFA  approved size and  weight.</p> 
+                <h4>  <strong> Soccerball   </strong>  <button type="button" class="btn btn-primary pull-right"> $19.50</button> </h4>                         <p> FIFA  approved size and  weight.</p> 
             </div>
             <div class="alert alert-success">
                 <a class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close"> </a>
-                   <h4>  <strong>   Corner Flags  </strong>   <button type="button" class="btn btn-primary pull-right">$34.95</button></h4>                     
-                <p> Give your playing field a personal touch.</p>
+                <h4>  <strong>   Corner Flags  </strong>   <button type="button" class="btn btn-primary pull-right">$34.95</button></h4>                       <p> Give your playing field a personal touch.</p>
             </div>
             
             <div class="alert alert-success">
                 <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
-                         <h4> <strong>Stadium</strong> <button type="button" class="btn btn-primary pull-right">$79,500,00</button>  </h4>           
+                <h4> <strong>Stadium</strong> <button type="button" class="btn btn-primary pull-right">$79,500,00</button>  </h4>           
                 <p>  Flat packed 35,000 seat stadium.</p>
             </div>
             
             <div class="alert alert-success">
                 <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
-                  <h4> <strong>   Thinking Cap   </strong>  <button type="button" class="btn btn-primary pull-right">$16.00</button></h4>     
+                <h4> <strong>   Thinking Cap   </strong>  <button type="button" class="btn btn-primary pull-right">$16.00</button></h4>     
                 <p>  Improve your brain efficiency by 75%.</p>
             </div>
             
@@ -91,31 +89,59 @@
             
             <div class="alert alert-success">
                 <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
-                     <h4> <strong>    Bling Bling KIng </strong>  <button type="button" class="btn btn-primary pull-right">$1,200,00</button> </h4>
+                <h4> <strong>    Bling Bling KIng </strong>  <button type="button" class="btn btn-primary pull-right">$1,200,00</button> </h4>
                 <p> Gold plated diamond studed king.</p>
             </div>
-            
-        </div>
+           
+            </div>
         <script>
         $(document).ready(function(){ 
             $("#search").change(function() {
-//alert("a");
+                      // alert("a");
                 var product=$("#search").val();
-           //   alert(product);
+                          // alert(product);
                               $.ajax( {
                               type:"POST",
                               url:"/products",
                               data:{product},
                               success: function (data) {
-                               //  alert("a");
-                              // alert(data);
-                }
+                           //  
+                             //  alert(data);
+                              }
+                             });
             });
+             $("#b1").click(function() {
+             // alert("a");
+                
+                 var item=$("#input1").val();
+                 var description=$("#input2").val();
+                 var price=$("#input3").val();
+                 $.ajax ( {
+                 type:"POST",
+                 url:"/products",
+                 data:{item,description,price},
+                 success: function(data) { 
+                    // alert("alishaSoni");
+                     $("#d1").append ('<div class="alert alert-success"> \
+               <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a> \
+                <h4 > <strong id="s1"> </strong>   <button id="btn" type="button" class="btn btn-primary pull-right"> </button> </h4> \
+               <p id="p1"> Gold plated diamond studed king.</p>\
+               </div>');
+                                                                // $("ol").append("<li>Appended item</li>");
+                     // alert(data.item);
+                      alert("alisha");                                         //      $("#div1").text(store);
+                     store1=(data.item);
+                     store2=(data.description);
+                     store3=(data.price);
+                    // alert("a");
+                     $("#s1").text(store1);
+                     $("#btn").text(store3);
+                     $("#p1").text(store2);
+                  }
         });
-            });
-                    
-     </script>
-   
-    </body>
-
+        });
+        });
+        </script>
+          
+</body>
 </html>
