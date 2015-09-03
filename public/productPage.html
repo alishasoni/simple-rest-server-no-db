@@ -96,6 +96,8 @@
             </div>
         <script>
         $(document).ready(function(){ 
+            
+            // alert("a");
             $("#search").change(function() {
                       // alert("a");
                 var product=$("#search").val();
@@ -110,15 +112,33 @@
                               
             });
                $("#b1").click(function() {
+                 //  alert("a");
+                   
                  var item=$("#input1").val();
                  var description=$("#input2").val();
                  var price=$("#input3").val();
+                   
+                   if(typeof item==="string" && typeof description==="string" && typeof price=== "string") {
+                    //  alert("L");
+                      // return(true);
+                       $("#input1").val("");
+                       $("#input2").val("");
+                       $("#input3").val("");
+                  }
+                   else {
+                      //  alert(typeof item);
+                      // alert(typeof description);
+                     //  alert(typeof price);
+                       alert("Please check out your input. INVALID INPUT !!!!");
+                     //  return (false);
+                   }
+                    
                      $.ajax ( {
                      type:"POST",
                      url:"/products",
                      data:{item,description,price},
                      success: function(data) { 
-                    // alert("alishaSoni");
+                 //   alert("alishaSoni");
                      store1=(data.item);
                      store2=(data.description);
                      store3=(data.price);
@@ -132,13 +152,8 @@
         });
         });
            
-            
         });
          
-                
-                
-                
-            });
         </script>
           
 </body>
