@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="en"></html>
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js"></script>
+        <title> My Product Page using HandelBar </title>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <div classs="navbar-header">
+                    <a class="navbar-brand"href="#"> Store</a>
+                </div>
+                <div> 
+                    <ul class="nav navbar-nav">
+                        <li class="active"> <a href ="#"> Home </a></li> 
+                        <li> <a href="#"> About </a> </li>
+                        <li> <a href="#"> Catalog </a></li>
+                        <li> <a href="#"> Contact </a></li>
+                    </ul>
+                </div>
+             </div>
+        </nav>
+        <div class="container col-sm-2">
+            <div class="list-group ">
+                <a href=""  class="list-group-item active ">Special Offer</a>
+                <a href=""  class="list-group-item">Clearance</a>
+                <a href=""  class="list-group-item"> Categories </a>
+                <a href=""  class="list-group-item">New Products </a>
+            </div>
+        </div>
+        
+        
+       
+        <div id="d1" class="container col-sm-10 ">
+            <form class="form-horizontal" role="form">
+            <div  class="form-group ">
+                <label class="col-sm-2 control-label"> Search </label>
+                <div class="col-sm-2">
+                    <input id="search" class="form-control"  type="text" placeholder="Search by product name">
+                 </div>
+                </div>
+            </form>
+            <form id="form1" class="form-horizontal" role="form">
+                
+            <div class="form-group ">
+                <label class="col-sm-2 control-label"> Add item </label>
+                <div class="col-sm-2 ">
+                    <input class="form-control" id="input1" type="text" placeholder="Item Name">
+                 </div>
+                 <div class="col-sm-2 ">
+                    <input class="form-control" id="input2" type="text" placeholder="Description">
+                 </div>
+                 <div class="col-sm-2 ">
+                    <input class="form-control" id="input3" type="text" placeholder="Price">
+                 </div>
+                <div>
+                    <button type="button"  id="b1">Add</button>
+                </div>
+                </div>
+            </form>
+           
+            
+            
+            
+            <div class="alert alert-success">
+                <a  class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close" >  </a>
+                <h4>  <strong> Soccerball   </strong>  <button type="button" class="btn btn-primary pull-right"> $19.50</button> </h4>                         <p> FIFA  approved size and  weight.</p> 
+            </div>
+            <div class="alert alert-success">
+                <a class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close"> </a>
+                <h4>  <strong>   Corner Flags  </strong>   <button type="button" class="btn btn-primary pull-right">$34.95</button></h4>                       <p> Give your playing field a personal touch.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                <h4> <strong>Stadium</strong> <button type="button" class="btn btn-primary pull-right">$79,500,00</button>  </h4>           
+                <p>  Flat packed 35,000 seat stadium.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                <h4> <strong>   Thinking Cap   </strong>  <button type="button" class="btn btn-primary pull-right">$16.00</button></h4>     
+                <p>  Improve your brain efficiency by 75%.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close"> </a>
+                <h4>  <strong>   Human Chess Board   </strong> <button type="button" class="btn btn-primary pull-right">$73.00</button>  </h4>  
+                <p> A fun game for the family.</p>
+            </div>
+            
+            <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                <h4> <strong>    Bling Bling KIng </strong>  <button type="button" class="btn btn-primary pull-right">$1,200,00</button> </h4>
+                <p> Gold plated diamond studed king.</p>
+            </div>
+         <script id="template" type="text/x-handlebars-template">  <div class="alert alert-success">
+                <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a>
+                <h4> <strong>    {{item1}} </strong>  <button type="button" class="btn btn-primary pull-right">{{price1}}</button> </h4>
+                <p> {{description1}}</p>
+            </div>                    
+            </script>
+
+           
+            </div>
+        <script>
+        $(document).ready(function(){ 
+            
+            // alert("a");
+            $("#search").change(function() {
+                      // alert("a");
+                var product=$("#search").val();
+                          // alert(product);
+                              $.ajax( {
+                              type:"POST",
+                              url:"/products",
+                              data:{product},
+                              success: function (data) {
+                              }
+                              });
+                              
+            });
+               $("#b1").click(function() {
+                 //  alert("a");
+                   
+                 var item=$("#input1").val();
+                 var description=$("#input2").val();
+                 var price=$("#input3").val();
+                   var generator=Handlebars.compile($("#template").html());
+                   var data={item1:$("#input1").val(),description1:$("#input2").val(),price1:$("#input3").val()};
+                   var temp=generator(data);
+                   alert (temp);
+                   
+                   if(typeof item==="string" && typeof description==="string" && typeof price=== "string") {
+                    //  alert("L");
+                      // return(true);
+                       $("#input1").val("");
+                       $("#input2").val("");
+                       $("#input3").val("");
+                  }
+                   else {
+                      //  alert(typeof item);
+                      // alert(typeof description);
+                     //  alert(typeof price);
+                       alert("Please check out your input. INVALID INPUT !!!!");
+                     //  return (false);
+                   }
+                    
+                     $.ajax ( {
+                     type:"POST",
+                     url:"/products",
+                     data:{item,description,price},
+                     success: function(data) { 
+                 //   alert("alishaSoni");
+                     store1=(data.item);
+                     store2=(data.description);
+                     store3=(data.price);
+                   //  $("#d1").append ('<div class="alert alert-success"> \
+                  //  <a href="#" class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" arial-label="close">  </a> \
+               //  <h4 > <strong id="s1"> ' + store1 + '</strong>   <button id="btn" type="button" class="btn btn-primary pull-right">'+ store3+                   '</button> </h4> \
+               //   <p id="p1">'+ store2+'</p>\
+              //    </div>');
+                         $("#d1").append(temp);
+                     
+                  }
+        });
+        });
+           
+        });
+         
+        </script>
+          
+</body>
+</html>
