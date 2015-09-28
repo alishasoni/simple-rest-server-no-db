@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head> <title> Learning AngularJs </title>
+ <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+    <body>
+     <div  ng-controller="myControl">
+         <div class="row">
+               <form id="form1" class="form-horizontal" role="form">
+
+      <div class="alert alert-success">
+                <a  class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close" >  </a>
+                <h4>  <strong> Soccerball   </strong>  <button type="button" class="btn btn-primary pull-right"> $19.50</button> </h4>                         <p> FIFA  approved size and  weight.</p> 
+            </div>
+        
+           <div class="col-md-3">         
+         <table    ng-repeat="x in student">
+             <tr> <td> {{x.name}} </td>
+             </tr>
+             <tr> <td> {{x.age}} </td>
+             </tr>
+             <tr> <td> {{x.gender}} </td>
+             </tr>
+             <tr> <td> {{x.status}} </td>
+             </tr>
+
+        </table>
+           </div>
+         </form>
+          </div>
+        </div>
+        <div ng-controller="mySecondCtrl">
+      <div  ng-repeat="y in customer" class="alert alert-success">
+                <a  class="glyphicon glyphicon-remove-sign pull-right" data-dismiss="alert" aria-label="close" >  </a>
+                <h4>  {{y.name}}   </strong>  <button type="button" class="btn btn-primary pull-right">{{y.description}}</button> </h4>                         <p> {{y.place}}</p> 
+            </div>
+            </div>
+    <div ng-controller="factoryCtrl">
+    </div>
+        
+  
+    <script>
+        var a= angular.module("myApp" , []);
+        a.controller("myControl",function($scope) {
+            $scope.student=[  
+                {name:'Ram', age:6, gender:'M', status:'student'},
+                {name:'Shyam', age:9, gender:'M', status:'student'},
+                {name:'Ritu', age:7, gender:'F', status:'student'},
+                {name:'Rani', age:6, gender:'F', status:'student'},
+                {name:'Raju', age:6, gender:'M', status:'student'}
+            ];
+        });
+            a.controller("mySecondCtrl",function($scope) {
+                $scope.customer=[
+                    {name:'Ranjeet', description:'walmart', place:'New York'}
+                
+         ]
+        });
+    </script>
+    <script>
+        a.factory('firstFactory',function() {
+             var k=4;
+           var p=3;
+           var c=k+p;
+            return c;
+        
+        });
+        a.controller('factoryCtrl',function ($scope,$http,firstFactory) {
+            $scope.item+[];
+            firstFactory.get_factory().success (function (data) {
+                $scope.item=data;
+                console.log (data);
+            });
+            
+            
+    </script>
+   
+    
+    </body>
+</html>
