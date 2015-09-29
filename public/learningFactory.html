@@ -1,0 +1,57 @@
+<html>
+
+   <head>
+      <title>Angular JS Services</title>
+      <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+   
+   <body ng-app="myApp">
+      <h2> AngularJS Program Using Factory </h2>
+       <div ng-controller="myController">
+           Enter Number:<input type="number" ng-model="number" > <br>
+           
+           <button ng-click="input()"> CLICK </button> <br>
+       
+          <!-- First Name:<input type="text" ng-model=" text"> <br>
+           Last Name:<input type="text" ng-model=" text1">
+           <button> Submit </button> -->
+       <p> {{result}}</p>
+          <!-- <p> It is very good to meet you {{}} {{}}</p> --> 
+       
+       </div>
+       <script>
+         var a=angular.module("myApp",[]);
+           a.factory("myFactory",function() {
+               var obj={};
+                obj.x = function(a) {
+                   return a*a;
+                   
+               };
+             //  obj.server= function (name) {
+                   
+             //  };
+              
+               return obj;
+               
+               
+           });
+           a.controller("myController",function($scope,myFactory){
+               $scope.input= function(){
+                   $scope.result=myFactory.x($scope.number);
+                   
+               };
+        
+            //   $scope.submit =function() {
+               //     $scope.name=$scope.text + $scope.text1;  
+               //    myFactory.server($scope.name);
+                   
+              // };
+           });
+               
+    
+       
+        </script>
+       
+       
+    </body>
+</html>
